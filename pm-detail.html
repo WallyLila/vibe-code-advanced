@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>รายละเอียดฝุ่น PM | Weather Report</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+Thai:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Animated background -->
+    <div class="bg-animation">
+        <div class="bg-orb bg-orb-1"></div>
+        <div class="bg-orb bg-orb-2"></div>
+        <div class="bg-orb bg-orb-3"></div>
+    </div>
+
+    <div class="detail-page">
+        <a href="#" class="back-btn" id="back-btn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="19" y1="12" x2="5" y2="12"></line>
+                <polyline points="12 19 5 12 12 5"></polyline>
+            </svg>
+            กลับหน้าหลัก
+        </a>
+
+        <div class="detail-hero hero-pm">
+            <div class="detail-hero-icon icon-pm">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"/>
+                    <path d="M12 6v6l4 2"/>
+                </svg>
+            </div>
+            <div class="detail-city" id="detail-city">--</div>
+            <h1 class="detail-title">ฝุ่น PM2.5 และคุณภาพอากาศ</h1>
+            <div class="detail-big-value value-pm" id="detail-pm">-- µg/m³</div>
+            <div class="detail-subtitle" id="detail-pm-label">--</div>
+        </div>
+
+        <div class="detail-section">
+            <div class="detail-section-header">
+                <div class="detail-section-icon" style="background: rgba(167, 139, 250, 0.15); color: var(--accent-purple);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+                    </svg>
+                </div>
+                <h2 class="detail-section-title">ระดับ PM2.5</h2>
+            </div>
+            
+            <div class="pm-level-bar-detail">
+                <div class="pm-bar-track-detail">
+                    <div class="pm-bar-indicator-detail" id="pm-bar-indicator" style="left: 0%;"></div>
+                </div>
+                <div class="pm-bar-labels-detail">
+                    <span>ดีมาก</span>
+                    <span>ดี</span>
+                    <span>ปานกลาง</span>
+                    <span>ไม่ดี</span>
+                    <span>แย่</span>
+                    <span>อันตราย</span>
+                </div>
+            </div>
+            <div id="pm-status-badge" class="status-badge" style="margin-top: 1.5rem;">--</div>
+        </div>
+
+        <div class="detail-section">
+            <div class="detail-section-header">
+                <div class="detail-section-icon" style="background: rgba(167, 139, 250, 0.15); color: var(--accent-purple);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"/>
+                        <line x1="12" y1="8" x2="12" y2="12"/>
+                        <line x1="12" y1="16" x2="12.01" y2="16"/>
+                    </svg>
+                </div>
+                <h2 class="detail-section-title">ข้อมูลคุณภาพอากาศโดยละเอียด</h2>
+            </div>
+            <div class="detail-grid">
+                <div class="detail-item">
+                    <span class="detail-item-label">PM2.5</span>
+                    <span class="detail-item-value" id="val-pm25">-- µg/m³</span>
+                </div>
+                <div class="detail-item">
+                    <span class="detail-item-label">PM10</span>
+                    <span class="detail-item-value" id="val-pm10">-- µg/m³</span>
+                </div>
+                <div class="detail-item">
+                    <span class="detail-item-label">AQI (ดัชนีคุณภาพอากาศ)</span>
+                    <span class="detail-item-value" id="val-aqi">--</span>
+                </div>
+                <div class="detail-item">
+                    <span class="detail-item-label">CO (คาร์บอนมอนอกไซด์)</span>
+                    <span class="detail-item-value" id="val-co">-- µg/m³</span>
+                </div>
+                <div class="detail-item">
+                    <span class="detail-item-label">NO₂ (ไนโตรเจนไดออกไซด์)</span>
+                    <span class="detail-item-value" id="val-no2">-- µg/m³</span>
+                </div>
+                <div class="detail-item">
+                    <span class="detail-item-label">O₃ (โอโซน)</span>
+                    <span class="detail-item-value" id="val-o3">-- µg/m³</span>
+                </div>
+                <div class="detail-item">
+                    <span class="detail-item-label">SO₂ (ซัลเฟอร์ไดออกไซด์)</span>
+                    <span class="detail-item-value" id="val-so2">-- µg/m³</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="pm-detail.js"></script>
+</body>
+</html>

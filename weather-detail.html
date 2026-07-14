@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>รายละเอียดสภาพอากาศ | Weather Report</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+Thai:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Animated background -->
+    <div class="bg-animation">
+        <div class="bg-orb bg-orb-1"></div>
+        <div class="bg-orb bg-orb-2"></div>
+        <div class="bg-orb bg-orb-3"></div>
+    </div>
+
+    <div class="detail-page">
+        <a href="#" class="back-btn" id="back-btn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="19" y1="12" x2="5" y2="12"></line>
+                <polyline points="12 19 5 12 12 5"></polyline>
+            </svg>
+            กลับหน้าหลัก
+        </a>
+
+        <div class="detail-hero hero-weather">
+            <div class="detail-hero-icon icon-weather">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M14 14.76V3.5a2.5 2.5 0 0 0-5 0v11.26a4.5 4.5 0 1 0 5 0z"/>
+                </svg>
+            </div>
+            <div class="detail-city" id="detail-city">--</div>
+            <h1 class="detail-title">สภาพอากาศ</h1>
+            <div class="detail-big-value value-weather" id="detail-temp">--°C</div>
+            <div class="detail-subtitle" id="detail-desc">--</div>
+        </div>
+
+        <div class="detail-section">
+            <div class="detail-section-header">
+                <div class="detail-section-icon" style="background: rgba(251, 146, 60, 0.15); color: var(--accent-orange);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 14.76V3.5a2.5 2.5 0 0 0-5 0v11.26a4.5 4.5 0 1 0 5 0z"/></svg>
+                </div>
+                <h2 class="detail-section-title">อุณหภูมิ</h2>
+            </div>
+            <div class="detail-grid">
+                <div class="detail-item">
+                    <span class="detail-item-label">รู้สึกเหมือน</span>
+                    <span class="detail-item-value" id="val-feels-like">--°C</span>
+                </div>
+                <div class="detail-item">
+                    <span class="detail-item-label">อุณหภูมิต่ำสุด</span>
+                    <span class="detail-item-value" style="color: var(--accent-blue);" id="val-temp-min">--°C</span>
+                </div>
+                <div class="detail-item">
+                    <span class="detail-item-label">อุณหภูมิสูงสุด</span>
+                    <span class="detail-item-value" style="color: var(--accent-red);" id="val-temp-max">--°C</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="detail-section">
+            <div class="detail-section-header">
+                <div class="detail-section-icon" style="background: rgba(34, 211, 238, 0.15); color: var(--accent-cyan);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg>
+                </div>
+                <h2 class="detail-section-title">เมฆและทัศนวิสัย</h2>
+            </div>
+            <div class="detail-grid">
+                <div class="detail-item detail-item-full" style="display: block;">
+                    <div class="detail-progress-label">
+                        <span>ปริมาณเมฆปกคลุม</span>
+                        <span style="color: var(--accent-cyan); font-weight: 600;" id="val-cloud-pct">--%</span>
+                    </div>
+                    <div class="detail-progress-track">
+                        <div class="detail-progress-fill" id="val-cloud-bar" style="background: linear-gradient(90deg, #22d3ee, #60a5fa); width: 0%;"></div>
+                    </div>
+                    <div style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 0.5rem;" id="val-cloud-desc">--</div>
+                </div>
+                <div class="detail-item">
+                    <span class="detail-item-label">ทัศนวิสัย</span>
+                    <span class="detail-item-value" id="val-visibility">-- km</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="detail-section">
+            <div class="detail-section-header">
+                <div class="detail-section-icon" style="background: rgba(96, 165, 250, 0.15); color: var(--accent-blue);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>
+                </div>
+                <h2 class="detail-section-title">ปริมาณน้ำฝนและความชื้น</h2>
+            </div>
+            <div class="detail-grid">
+                <div class="detail-item">
+                    <span class="detail-item-label">ฝน (1 ชม.)</span>
+                    <span class="detail-item-value" style="color: var(--accent-blue);" id="val-rain-1h">-- mm</span>
+                </div>
+                <div class="detail-item">
+                    <span class="detail-item-label">ฝน (3 ชม.)</span>
+                    <span class="detail-item-value" id="val-rain-3h">-- mm</span>
+                </div>
+                <div class="detail-item">
+                    <span class="detail-item-label">สถานะ</span>
+                    <span class="detail-item-value" id="val-rain-desc">--</span>
+                </div>
+                <div class="detail-item">
+                    <span class="detail-item-label">ความชื้นสัมพัทธ์</span>
+                    <span class="detail-item-value" id="val-humidity">--%</span>
+                </div>
+            </div>
+            <div id="rain-alert" class="status-badge status-moderate" style="margin-top: 1rem; display: none;">
+                ⚠️ มีฝนตกอยู่ในขณะนี้
+            </div>
+        </div>
+    </div>
+
+    <script src="weather-detail.js"></script>
+</body>
+</html>
